@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i=0; i<n; i++)
+using ll = long long;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    rep(i,n) if (a[i] != -1) a[i]--;
+
+    vector<int> d(n);
+    rep(i,n) if (a[i] != -1) d[a[i]] = i;
+
+    int s = -1;
+    rep(i,n) if (a[i] == -1) s = i;
+    vector<int> ans = {s};
+    rep(i,n-1) {
+        s = d[s];
+        ans.push_back(s);
+    }
+
+    rep(i,n) cout << ans[i]+1 << ' ';
+    cout << endl;
+return 0;
+}
