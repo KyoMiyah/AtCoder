@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "/usr/local/bin/g++-13", 
+        "args": [
+          "-std=c++17",
+          "-I", "${workspaceFolder}/ac-library/atcoder/**",
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      }
+    ]
+  }
