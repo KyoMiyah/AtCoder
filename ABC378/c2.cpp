@@ -1,18 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include <atcoder/all>
-using namespace atcoder;
 #define rep(i,n) for (int i=0; i<n; i++)
 using ll = long long;
 
 int main() {
     int n;
-    vector<int> c(5);
-    c = {1,2,3,4,5};
-    rep(i,5) {
-        cout << c[i] << endl;
+    cin >> n;
+    map<int,vector<int>> to;
+    rep(i,n) {
+        int a;
+        cin >> a;
+        if (to[a].size() == 0) {
+            cout << -1 << ' ';
+            to[a].push_back(i+1);
+            continue;
+        }
+        cout << to[a].back() << ' ';        
+        to[a].push_back(i+1);
     }
-    vector<int> a(n);
+    cout << endl;
     
 return 0;
 }

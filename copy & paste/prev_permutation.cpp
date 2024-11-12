@@ -11,3 +11,5 @@ int main() {
     rep(i,n) cout << p[i] << endl;
 return 0;
 }
+
+//n>100の時の別解がABC276のc問題で出ています。
