@@ -3,17 +3,11 @@ using namespace std;
 #define rep(i,n) for (int i=0; i<n; i++)
 using ll = long long;
 
-//dfsは木構造との相性がいい
 int main() {
-    int n, x, y;
-    cin >> n >> x >> y;
-    vector<vector<int>> to(n+1);
-    rep(i,n-1) {
-        int a, b;
-        cin >> a >> b;
-        to[a].push_back(b);
-        to[b].push_back(a);
-    }
+    int h, w, k;
+    cin >> h >> w >> k;
+    vector<string> s(h);
+    rep(i,h) cin >> s[i];
 
     vector<int> ans; //答えを復元する関数
     auto dfs = [&] (auto f, int v, int p = -1) -> bool { //vは今いるところ、pは親。
@@ -32,7 +26,6 @@ int main() {
     };
     dfs(dfs, y);
 
-    rep(i,ans.size()) cout << ans[i] << ' ';
-    cout << endl;
+    
 return 0;
 }
