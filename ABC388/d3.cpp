@@ -6,16 +6,20 @@ using ll = long long;
 int main() {
     int n;
     cin >> n;
-    vector<ll> a(n), b(n);
+    vector<int> a(n);
     rep(i,n) cin >> a[i];
+    int s = 0;
+    vector<int> r(n);
 
     rep(i,n) {
-        a[i] += b[i];
-        int cnt = min((ll)n-i-1, a[i]);
+        a[i] += s;
+        s++;
+        int cnt = min(a[i], n-i-1);
         a[i] -= cnt;
-        for (int j=i+1; j<i+1+cnt; j++) b[j]++;
+        r[i+cnt]++;
+        s -= r[i];
     }
- 
+
     rep(i,n) cout << a[i] << ' ';
     cout << endl;
 return 0;
