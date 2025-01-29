@@ -14,13 +14,14 @@ int main() {
     rep(i,n) rep(j,n) rep(k,n+1) ss[i][j+1][k] = ss[i][j][k] + s[i][j][k];
     vector<vector<vector<ll>>> sss(n+1, vector<vector<ll>>(n+1, vector<ll>(n+1)));
     rep(i,n) rep(j,n+1) rep(k,n+1) sss[i+1][j][k] = sss[i][j][k] + ss[i][j][k];
+
     int q;
     cin >> q;
     rep(nq,q) {
         int lx, rx, ly, ry, lz, rz;
         cin >> lx >> rx >> ly >> ry >> lz >> rz;
         lx--; rx; ly--; ry; lz --; rz;
-        ll ans = sss[rx][ry][rz] - sss[lx][ly][lz];
+        ll ans = ((sss[rx][ry][rz]-sss[rx][ry][lz])-(sss[rx][ly][rz]-sss[rx][ly][lz])) - ((sss[lx][ry][rz]-sss[lx][ry][lz])-(sss[lx][ly][rz]-sss[lx][ly][lz]));
         cout << ans << endl;
     }
 
