@@ -6,6 +6,7 @@ using namespace atcoder;
 using ll = long long;
 using mint = modint998244353;
 //ABC 357 D
+//https://atcoder.github.io/ac-library/production/document_ja/modint.html
 
 int main() {
     ll n;
